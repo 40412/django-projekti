@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from .models import Tuote
 
 ETUSIVU_HTML = """
 <html>
@@ -28,6 +29,8 @@ Nyt tarjouksessa. Osta heti!
 """
 
 def etusivu(request):
+    for tuote in Tuote.objects.all():
+        print(tuote)
     return HttpResponse(ETUSIVU_HTML)
 
 
